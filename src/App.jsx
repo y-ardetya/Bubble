@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Outerlay />
-      <Canvas>
+      <Canvas gl={{ antialias: false }} dpr={1}>
         <Scene />
       </Canvas>
     </>

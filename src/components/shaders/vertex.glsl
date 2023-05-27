@@ -25,7 +25,7 @@ float noise(vec2 p){
 
 void main () {
     vec3 pos = position;
-    float velocity = 0.1;
+    float velocity = 0.2;
     vec2 wave = vec2(sin(uv.y * PI + uTime) * velocity, cos(uv.x * PI + uTime) * velocity);
    
     pos = mix(pos, pos + vec3(wave, 0.0), uProgress) ;

@@ -1,60 +1,24 @@
 import { MeshReflectorMaterial, RoundedBox, Float } from "@react-three/drei";
+import * as THREE from "three";
+
+const geometry = new THREE.SphereGeometry();
+const material = new THREE.MeshBasicMaterial({
+  toneMapped: false,
+  color: new THREE.Color(1, 1, 3),
+});
 
 const Bubble = ({ ...props }) => {
   return (
     <Float
-      speed={2}
+      speed={3}
       rotationIntensity={0.75}
       floatIntensity={0.5}
       floatingRange={[0.75, 0.75, 0.5]}
     >
-      <mesh {...props}>
-        <sphereGeometry />
-        <meshStandardMaterial
-          emissive={"hotpink"}
-          emissiveIntensity={2}
-          color={[4, 1, 3]}
-          toneMapped={false}
-        />
-      </mesh>
+      <mesh {...props} geometry={geometry} material={material} />
+        
+     
     </Float>
-  );
-};
-
-const MiddleCube = () => {
-  return (
-    <RoundedBox scale={1.5} position={[-0.2, -1.4, 0]} rotation={[0, 0.7, 0]}>
-      <meshStandardMaterial
-        emissive={"mediumpurple"}
-        emissiveIntensity={2}
-        color={[2, 1.5, 8]}
-        toneMapped={false}
-      />
-    </RoundedBox>
-  );
-};
-
-const Floor = () => {
-  return (
-    <mesh
-      scale={[30, 10, 1]}
-      position={[0, -2, 0]}
-      rotation={[-Math.PI / 2, 0, 0]}
-    >
-      <planeGeometry />
-      <MeshReflectorMaterial
-        blur={[300, 100]}
-        resolution={1024}
-        mixBlur={1}
-        mixStrength={50}
-        roughness={1}
-        depthScale={1.2}
-        minDepthThreshold={0.2}
-        maxDepthThreshold={1.6}
-        color="#050505"
-        metalness={0}
-      />
-    </mesh>
   );
 };
 
@@ -66,8 +30,35 @@ const LandingPage = () => {
         <planeGeometry />
         <meshStandardMaterial />
       </mesh>
-      <Floor />
-      <MiddleCube />
+      //* Floor *//
+      <mesh
+        scale={[30, 10, 1]}
+        position={[0, -2, 0]}
+        rotation={[-Math.PI / 2, 0, 0]}
+      >
+        <planeGeometry />
+        <MeshReflectorMaterial
+          blur={[150, 50]}
+          resolution={512}
+          mixBlur={1}
+          mixStrength={50}
+          roughness={1}
+          depthScale={1.2}
+          minDepthThreshold={0.2}
+          maxDepthThreshold={1.6}
+          color="#050505"
+          metalness={0}
+        />
+      </mesh>
+      //* Back Wall *//
+      <mesh scale={[30, 10, 1]} position={[0, 3, -5]}>
+        <planeGeometry />
+        <meshStandardMaterial color="black" />
+      </mesh>
+      //* Middle Cube *//
+      <RoundedBox scale={1.5} position={[-0.2, -1.4, 0]} rotation={[0, 0.7, 0]}>
+        <meshStandardMaterial color={[1, 1, 3]} toneMapped={false} />
+      </RoundedBox>
       //* BUBBLES *//
       <Bubble scale={0.75} position={[-3, -1.3, 0]} />
       <Bubble scale={0.2} position={[0.8, -1.8, 1]} />

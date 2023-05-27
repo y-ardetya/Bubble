@@ -44,7 +44,7 @@ const Setting = ({ position, texture, rotation }) => {
   return (
     <>
       <mesh ref={$mesh} position={position} rotation={rotation}>
-        <planeGeometry args={[3, 4, 32, 32]} />
+        <planeGeometry args={[3, 4, 16, 16]} />
         <sMaterial ref={$shader} key={SMaterial.key} />
       </mesh>
     </>

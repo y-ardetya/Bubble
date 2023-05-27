@@ -21,7 +21,7 @@
         font-size: 50px;
 
         &:hover {
-          color: #ff69b4;
+          color: #9370db;
           cursor: pointer;
           transition: all 0.5s ease-in-out;
         }
@@ -45,11 +45,117 @@
         text-decoration: none;
 
         &:hover {
-          color: #ff69b4;
+          color: #9370db;
           cursor: pointer;
           transition: all 0.5s ease-in-out;
         }
       }
+    }
+  }
+}
+
+.sectionOne {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sectionOne--text {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    margin-top: calc(100vh + 90vh);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 30px;
+      text-shadow: 0 0 15px rgba(174, 80, 214, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+  }
+}
+
+.sectionTwo {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sectionTwo--text {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    margin-top: calc(100vh + 90vh);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 30px;
+      text-shadow: 0 0 15px rgba(174, 80, 214, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+  }
+}
+
+.scroll {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 3em;
+  margin-bottom: 2em;
+}
+
+@media screen and (max-width: 768px) {
+  .nav--logo {
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .sectionOne--text {
+    width: 100%;
+    height: 100%;
+    h1 {
+      font-size: 10px;
+    }
+  }
+
+  .sectionTwo--text {
+    width: 100%;
+    height: 100%;
+    h1 {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav--logo {
+    h1 {
+      font-size: 20px;
+    }
+  }
+  .sectionOne--text {
+    width: 100%;
+    height: 100%;
+    h1 {
+      font-size: 5px;
+    }
+  }
+
+  .sectionTwo--text {
+    width: 100%;
+    height: 100%;
+    h1 {
+      font-size: 5px;
     }
   }
 }
